@@ -6,11 +6,11 @@ section .text
 _start:
 	mov [addr], byte 'H'
 	mov [addr + 5], byte '!' 
-	mov eax, 4 ; sys_write system call
-	mov ebx, 1 ; stdout file descriptor
-	mov ecx, addr ; bytes to write
-	mov edx, 7 ; number of bytes to write
-	int 0x80 ; perform system call
-	mov eax, 1 ; sys_exit system call
-	mov ebx, 0 ; exit status is 0
-	int 0x80
+	mov rax, 1 ; sys_write system call
+	mov rdi, 1 ; stdout file descriptor
+	mov rsi, addr ; bytes to write
+	mov rdx, 7 ; number of bytes to write
+	syscall ; perform system call
+	mov rax, 60 ; sys_exit system call
+	mov rdi, 0 ; exit status is 0
+	syscall
