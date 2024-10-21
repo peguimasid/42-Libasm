@@ -6,11 +6,11 @@ section .data
 
 section .text
 _start:
-  mov eax, 4 ; sys_write system call
-  mov ebx, 1 ; stdout file descriptor
-  mov ecx, msg ; bytes to write
-  mov edx, len ; number of bytes to write
-  int 0x80 ; perfom system call
-  mov eax, 1 ; sys_exit system call
-  mov ebx, 0 ; exit status is 0
-  int 0x80
+  mov rax, 1 ; sys_write system call
+  mov rdi, 1 ; stdout file descriptor
+  mov rsi, msg ; bytes to write
+  mov rdx, len ; number of bytes to write
+  syscall ; perfom system call
+  mov rax, 60 ; sys_exit system call
+  mov rdi, 0 ; exit status is 0
+  syscall
