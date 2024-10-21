@@ -1,6 +1,6 @@
 global _start
 
 _start:
-  mov eax, 1
-  mov ebx, 42
-  int 0x80
+	mov rax, 60 ; sys_exit system call
+	mov rdi, 42 ; exit status is 42
+	syscall
