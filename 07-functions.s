@@ -7,6 +7,7 @@ _start:
   syscall
 
 func:
+  push rbp
   mov rbp, rsp
   sub rsp, 4
   mov [rsp], byte 'H'
@@ -19,4 +20,5 @@ func:
   mov rdx, 4 ; number of bytes to write
   syscall ; perform system call
   mov rsp, rbp
+  pop rbp
   ret
