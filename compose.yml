@@ -1,0 +1,15 @@
+services:
+  libasm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ~/Documents/projects/libasm:/libasm
+
+# Just run `docker compose run libasm bash` and you're good to go
+# Run `docker compose down --remove-orphans` to clear and remove orphans
+# and prevent the warning on start
+
+# The folders of libasm in my computer are inside
+# ~/Documents/projects/libasm just change in your's to replicate
+# the files in your machine to the container
