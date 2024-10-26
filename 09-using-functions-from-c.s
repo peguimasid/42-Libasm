@@ -15,7 +15,8 @@ main:
   mov rsi, 123        ; Load the integer 123 into rsi
 
 	; Call printf
-  call printf wrt ..plt
+	; to call like this you need to add -no-pie in gcc -no-pie 09-using-functions-from-c.o
+  call printf 
 
   ; Set status to be 0 (success)
   mov rax, 0
