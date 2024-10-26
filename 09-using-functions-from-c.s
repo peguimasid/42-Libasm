@@ -1,3 +1,4 @@
+; nasm -f elf64 09-using-functions-from-c.s && gcc 09-using-functions-from-c.o && ./a.out && rm a.out *.o
 global main
 extern printf
 
