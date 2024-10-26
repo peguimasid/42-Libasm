@@ -1,3 +1,5 @@
+; nasm -felf64 00-exit.s && ld hello.o && ./a.out
+
 global _start
 
 _start:
