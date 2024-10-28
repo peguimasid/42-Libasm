@@ -30,7 +30,7 @@ times2:
 ; [64] 0
 
 ; At this point we move to the times2 function that push `rbp` to the top of the
-; stack (line 11) and mov rsp int rbp (line 12) to preserve the stack (prolog)
+; stack (line 11) and mov rsp into rbp (line 12) to preserve the stack (prolog)
 ; [40] <value at rbp>
 ; [48] *return addr
 ; [56] 21
