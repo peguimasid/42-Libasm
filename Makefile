@@ -1,5 +1,5 @@
 all: clear
-	@docker compose run libasm bash
+	@docker compose run debian bash
 
 clear:
 	@docker compose down --remove-orphans
