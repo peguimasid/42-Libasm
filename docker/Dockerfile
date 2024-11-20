@@ -4,7 +4,7 @@ FROM --platform=linux/amd64 debian:bookworm-slim
 # Install vim, nasm, binutils, and gcc
 RUN apt update && \
     apt upgrade -y && \
-    apt install -y binutils gcc nasm vim && \
+    apt install -y binutils gcc make nasm vim && \
     apt clean
 
 WORKDIR /libasm

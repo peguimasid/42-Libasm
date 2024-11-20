@@ -1,6 +1,4 @@
-#include <stdio.h>
-
-#include "ft_strlen.h"
+#include "libasm.h"
 
 int main() {
   int result = ft_strlen("Hello World!");
