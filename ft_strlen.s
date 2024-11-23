@@ -1,6 +1,7 @@
-global _ft_strlen
+section .text
+  global ft_strlen
 
-_ft_strlen:
+ft_strlen:
   mov rcx, 0 ; Initialize counter to 0
 
 loop:
@@ -12,3 +13,5 @@ loop:
 break:
   mov rax, rcx ; Move the counter to rax (return value)
   ret
+
+section .note.GNU-stack
