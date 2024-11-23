@@ -62,7 +62,7 @@ void execute_strcpy_tests() {
 }
 
 int main() {
-  // execute_strlen_tests();
+  execute_strlen_tests();
   execute_strcpy_tests();
   return 0;
 }

@@ -2,16 +2,17 @@ section .text
   global ft_strcpy
 
 ft_strcpy:
-  mov rcx, 0 ; Initialize counter to 0
+  mov rcx, 0
 
 loop:
-  cmp byte [rsi + rcx], 0 ; Compare the current character with null terminator
-  je break ; If null terminator, jump to break
-  inc rcx ; Increment counter
-  jmp loop ; Repeat the loop
+  mov al, [rsi + rcx] ; al = src[rcx]
+  mov [rdi + rcx], al ; dst[rcs] = al
+  inc rcx             ; rcx++
+  cmp al, 0           ; is al the end of string?
+  jne loop            ; jump to loop if not is (jne -> jump if not equal)
 
 break:
-  mov rax, rcx ; Move the counter to rax (return value)
+  mov rax, rdi
   ret
 
 section .note.GNU-stack
