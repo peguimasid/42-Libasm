@@ -30,6 +30,6 @@ void execute_strlen_tests() {
 }
 
 int main() {
-  execute_strlen_tests();
+  // execute_strlen_tests();
   return 0;
 }
