@@ -1,6 +1,6 @@
 NAME = libasm.a
 
-SRCS = ft_strlen.s
+SRCS = $(addprefix src/, ft_strlen.s)
 OBJ	 = $(SRCS:.s=.o)
 
 $(NAME): $(OBJ)
@@ -24,7 +24,7 @@ fclean: clean
 re:	fclean all
 
 test: all
-	@gcc -Wall -Wextra -Werror main.c $(NAME) -o test && ./test && rm test
+	@gcc -Wall -Wextra -Werror src/main.c $(NAME) -o test && ./test && rm test
 
 linux: linux-clean
 	@docker compose -f docker/compose.yml run debian bash
