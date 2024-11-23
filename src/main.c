@@ -15,7 +15,7 @@ void run_strlen_test(char *str) {
 }
 
 void execute_strlen_tests() {
-  printf(BOLD "\nTESTING: ft_strlen \n" RESET);
+  printf(BOLD "\n➜ Testing: ft_strlen \n" RESET);
 
   run_strlen_test("Hello World!");
   run_strlen_test("");
