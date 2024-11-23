@@ -7,12 +7,11 @@ void run_strlen_test(char *str) {
   if (result == expected) {
     printf(GREEN);
     printf("✓ ft_strlen(\"%s\") = %d\n", str, result);
-    printf(RESET);
   } else {
     printf(RED);
     printf("✕ ft_strlen(\"%s\") = %d, expected %d\n", str, result, expected);
-    printf(RESET);
   }
+  printf(RESET);
 }
 
 void execute_strlen_tests() {
