@@ -5,6 +5,8 @@
 #define GREEN "\033[0;32m"
 #define BOLD "\033[1m"
 
+#define BUFFER_SIZE 100
+
 #include <stdio.h>
 #include <string.h>
 
