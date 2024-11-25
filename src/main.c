@@ -61,8 +61,38 @@ void execute_strcpy_tests() {
   run_strcpy_test("zzzzzzzzzzzzzzzzzzzzzzzz hey");
 }
 
+void run_strcmp_test(char *str1, char *str2) {
+  int actual = ft_strcmp(str1, str2);
+  int expected = strcmp(str1, str2);
+
+  if (actual == expected) {
+    printf(GREEN);
+    printf("✓ ft_strcmp(\"%s\", \"%s\") = %d\n", str1, str2, actual);
+  } else {
+    printf(RED);
+    printf("✕ ft_strcmp(\"%s\", \"%s\") = %d, expected %d\n", str1, str2, actual, expected);
+  }
+  printf(RESET);
+}
+
+void execute_strcmp_tests() {
+  printf(BOLD "\n➜ Testing: ft_strcmp \n" RESET);
+
+  run_strcmp_test("Hello", "Hello");
+  run_strcmp_test("Hello", "World");
+  run_strcmp_test("", "");
+  run_strcmp_test("A", "A");
+  run_strcmp_test("A", "B");
+  run_strcmp_test("Test", "Test");
+  run_strcmp_test("Test", "test");
+  run_strcmp_test("123", "123");
+  run_strcmp_test("123", "124");
+  run_strcmp_test("abc", "abcd");
+}
+
 int main() {
   execute_strlen_tests();
   execute_strcpy_tests();
+  execute_strcmp_tests();
   return 0;
 }

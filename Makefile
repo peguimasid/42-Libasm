@@ -1,6 +1,6 @@
 NAME = libasm.a
 
-SRCS = $(addprefix src/, ft_strlen.s ft_strcpy.s)
+SRCS = $(addprefix src/, ft_strlen.s ft_strcpy.s ft_strcmp.s)
 OBJ	 = $(SRCS:.s=.o)
 
 $(NAME): $(OBJ)
