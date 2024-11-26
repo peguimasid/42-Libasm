@@ -5,13 +5,20 @@ ft_strcmp:
   mov rcx, 0
 
 loop:
-  cmp byte [rdi + rcx], 0
+  movzx r8, byte [rdi + rcx]
+  movzx r9, byte [rsi + rcx]
+  cmp r8, 0
   je break
+  cmp r9, 0
+  je break
+  cmp r8, r9
+  jne break
   inc rcx
   jmp loop
 
 break:
-  mov rax, rcx ; set the return value to be rcx
+  sub r8, r9 
+  mov rax, r8
   ret
 
 section .note.GNU-stack
