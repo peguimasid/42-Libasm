@@ -3,6 +3,8 @@ section .text
 
 ft_strcmp:
   mov rcx, 0
+  mov r8, 0
+  mov r9, 0
 
 loop:
   movzx r8, byte [rdi + rcx]

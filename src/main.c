@@ -78,16 +78,14 @@ void run_strcmp_test(char *str1, char *str2) {
 void execute_strcmp_tests() {
   printf(BOLD "\n➜ Testing: ft_strcmp \n" RESET);
 
-  run_strcmp_test("Hello", "Hello");
-  run_strcmp_test("Hello", "World");
+  run_strcmp_test("test123456709123", "test1234567");
+  run_strcmp_test("1", "2");
+  run_strcmp_test("test", "test2");
+  run_strcmp_test("test", "Test");
+  run_strcmp_test("test", "tesT");
+  run_strcmp_test("test", "test");
   run_strcmp_test("", "");
-  run_strcmp_test("A", "A");
-  run_strcmp_test("A", "B");
-  run_strcmp_test("Test", "Test");
-  run_strcmp_test("Test", "test");
-  run_strcmp_test("123", "123");
-  run_strcmp_test("123", "124");
-  run_strcmp_test("abc", "abcd");
+  run_strcmp_test("4242424242", "4242244242");
 }
 
 int main() {
