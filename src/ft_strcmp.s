@@ -13,9 +13,8 @@ loop:
   movzx r8, byte [rdi + rcx] ; Load byte from s1[rcx] into r8 with zero extension
   movzx r9, byte [rsi + rcx] ; Load byte from s2[rcx] into r9 with zero extension
   cmp r8, 0                  ; Compare r8 with null terminator
-  je break                   ; If r8 is null terminator, break
   cmp r9, 0                  ; Compare r9 with null terminator
-  je break                   ; If r9 is null terminator, break
+  jz break                   ; If zero flag is set, break
   cmp r8, r9                 ; Compare characters from s1 and s2
   jne break                  ; If characters are different, break
   inc rcx                    ; Increment index counter
