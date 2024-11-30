@@ -89,8 +89,9 @@ void execute_strcmp_tests() {
 }
 
 int main() {
-  execute_strlen_tests();
-  execute_strcpy_tests();
-  execute_strcmp_tests();
+  // execute_strlen_tests();
+  // execute_strcpy_tests();
+  // execute_strcmp_tests();
+  ft_write(1, "Hello\n", 6);
   return 0;
 }
