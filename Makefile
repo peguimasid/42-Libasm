@@ -5,7 +5,7 @@ OBJ	 = $(SRCS:.s=.o)
 
 $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
-	@echo "$(NAME) ✅"
+	@echo "✓ $(NAME)"
 
 all: $(NAME)
 
@@ -14,12 +14,12 @@ all: $(NAME)
 
 clean:
 	@rm -f $(OBJ)
-	@echo "$(OBJ) 🗑️"
+	@echo "✕ $(OBJ)"
 
 fclean: clean
 	@rm -f $(NAME)
 	@rm -f test
-	@echo "$(NAME) 🗑️"
+	@echo "✕ $(NAME)"
 
 re:	fclean all
 
