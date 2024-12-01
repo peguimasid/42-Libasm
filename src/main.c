@@ -88,10 +88,39 @@ void execute_strcmp_tests() {
   run_strcmp_test("4242424242", "4242244242");
 }
 
+void run_write_test(int fd, char *str, size_t len) {
+  ssize_t actual = ft_write(fd, str, len);
+  ssize_t expected = write(fd, str, len);
+
+  if (actual == expected) {
+    printf(GREEN);
+    printf("✓ ft_write(%d, \"%s\", %zu) = %zd\n", fd, str, len, actual);
+  } else {
+    printf(RED);
+    printf("✕ ft_write(%d, \"%s\", %zu) = %zd, expected %zd\n", fd, str, len, actual, expected);
+  }
+  printf(RESET);
+}
+
+void execute_write_tests() {
+  printf(BOLD "\n➜ Testing: ft_write \n" RESET);
+
+  run_write_test(1, "Hello World!", 12);
+  run_write_test(1, "", 0);
+  run_write_test(1, "A", 1);
+  run_write_test(1, "This is a longer string to test the function.", 45);
+  run_write_test(1, "1234567890", 10);
+  run_write_test(1, "Special characters !@#$%^&*()", 30);
+  run_write_test(1, "test12345", 9);
+  run_write_test(1, "1", 1);
+  run_write_test(1, "test", 4);
+  run_write_test(1, "zzzzzzzzzzzzzzzzzzzzzzzz hey", 29);
+}
+
 int main() {
-  // execute_strlen_tests();
-  // execute_strcpy_tests();
-  // execute_strcmp_tests();
-  ft_write(1, "Hello\n", 6);
+  execute_strlen_tests();
+  execute_strcpy_tests();
+  execute_strcmp_tests();
+  // execute_write_tests();
   return 0;
 }

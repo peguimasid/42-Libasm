@@ -9,6 +9,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 int ft_strlen(char *str);
 char *ft_strcpy(char *dst, char *src);
