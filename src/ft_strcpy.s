@@ -2,7 +2,7 @@ section .text
   global ft_strcpy
 
 ft_strcpy:
-  mov rcx, 0
+  xor rcx, rcx
 
 loop:
   mov al, [rsi + rcx] ; al = src[rcx]

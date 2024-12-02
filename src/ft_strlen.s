@@ -2,7 +2,7 @@ section .text
   global ft_strlen
 
 ft_strlen:
-  mov rcx, 0
+  xor rcx, rcx
 
 loop:
   cmp byte [rdi + rcx], 0 ; is str[rcx] the end of the string?

@@ -2,9 +2,9 @@ section .text
   global ft_strcmp
 
 ft_strcmp:
-  mov rcx, 0  ; Initialize index counter to 0
-  mov r8, 0   ; Initialize r8 to 0 (will hold characters from s1)
-  mov r9, 0   ; Initialize r9 to 0 (will hold characters from s2)
+  xor rcx, rcx  ; Initialize index counter to 0
+  xor r8, r8   ; Initialize r8 to 0 (will hold characters from s1)
+  xor r9, r9   ; Initialize r9 to 0 (will hold characters from s2)
 
 ; We need to use movzx because we're moving an 8-bit value
 ; ([rdi + rcx]) into a 64-bit register (r8)
