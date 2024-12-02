@@ -2,7 +2,7 @@ section .text
   global ft_strcmp
 
 ft_strcmp:
-  xor rcx, rcx  ; Initialize index counter to 0
+  xor rcx, rcx ; Initialize index counter to 0
   xor r8, r8   ; Initialize r8 to 0 (will hold characters from s1)
   xor r9, r9   ; Initialize r9 to 0 (will hold characters from s2)
 
