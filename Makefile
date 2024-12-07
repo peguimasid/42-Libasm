@@ -1,6 +1,11 @@
 NAME = libasm.a
 
-SRCS = $(addprefix src/, ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s)
+FILES = ft_strlen.s
+FILES += ft_strcpy.s
+FILES += ft_strcmp.s
+FILES += ft_write.s
+
+SRCS = $(addprefix src/, $(FILES))
 OBJ	 = $(SRCS:.s=.o)
 
 $(NAME): $(OBJ)

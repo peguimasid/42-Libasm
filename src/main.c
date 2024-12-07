@@ -106,21 +106,21 @@ void execute_write_tests() {
   printf(BOLD "\n➜ Testing: ft_write \n" RESET);
 
   run_write_test(1, "Hello World!", 12);
-  run_write_test(1, "", 0);
-  run_write_test(1, "A", 1);
-  run_write_test(1, "This is a longer string to test the function.", 45);
-  run_write_test(1, "1234567890", 10);
-  run_write_test(1, "Special characters !@#$%^&*()", 30);
-  run_write_test(1, "test12345", 9);
-  run_write_test(1, "1", 1);
-  run_write_test(1, "test", 4);
-  run_write_test(1, "zzzzzzzzzzzzzzzzzzzzzzzz hey", 29);
+  // run_write_test(1, "", 0);
+  // run_write_test(1, "A", 1);
+  // run_write_test(1, "This is a longer string to test the function.", 45);
+  // run_write_test(1, "1234567890", 10);
+  // run_write_test(1, "Special characters !@#$%^&*()", 30);
+  // run_write_test(1, "test12345", 9);
+  // run_write_test(1, "1", 1);
+  // run_write_test(1, "test", 4);
+  // run_write_test(1, "zzzzzzzzzzzzzzzzzzzzzzzz hey", 29);
 }
 
 int main() {
   execute_strlen_tests();
   execute_strcpy_tests();
   execute_strcmp_tests();
-  // execute_write_tests();
+  execute_write_tests();
   return 0;
 }
