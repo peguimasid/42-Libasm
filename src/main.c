@@ -89,15 +89,20 @@ void execute_strcmp_tests() {
 }
 
 void run_write_test(int fd, char *str, size_t len) {
+  errno = 0;
   ssize_t actual = ft_write(fd, str, len);
-  ssize_t expected = write(fd, str, len);
+  int actual_errno = errno;
 
-  if (actual == expected) {
+  errno = 0;
+  ssize_t expected = write(fd, str, len);
+  int expected_errno = errno;
+
+  if (actual == expected && actual_errno == expected_errno) {
     printf(GREEN);
-    printf("✓ ft_write(%d, \"%s\", %zu) = %zd\n", fd, str, len, actual);
+    printf("✓ ft_write(%d, \"%s\", %zu) = %zd, errno = %d\n", fd, str, len, actual, actual_errno);
   } else {
     printf(RED);
-    printf("✕ ft_write(%d, \"%s\", %zu) = %zd, expected %zd\n", fd, str, len, actual, expected);
+    printf("✕ ft_write(%d, \"%s\", %zu) = %zd, expected %zd, errno = %d, expected errno = %d\n", fd, str, len, actual, expected, actual_errno, expected_errno);
   }
   printf(RESET);
 }
@@ -108,6 +113,7 @@ void execute_write_tests() {
   int fd = open("test.txt", O_CREAT | O_WRONLY | O_TRUNC, 0644);
 
   run_write_test(fd, "Hello World!", 12);
+  run_write_test(10, "Hello World!", 12);
   // run_write_test(1, "", 0);
   // run_write_test(1, "A", 1);
   // run_write_test(1, "This is a longer string to test the function.", 45);

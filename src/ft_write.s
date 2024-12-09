@@ -10,7 +10,7 @@ ft_write:
   ; mov rsi, rsi ; buffer
   ; mov rdx, rdx ; count
   syscall
-  cmp rax, 0
+  test rax, 0
   jl error
   ret
 
