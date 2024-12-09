@@ -7,6 +7,7 @@
 
 #define BUFFER_SIZE 100
 
+#include <fcntl.h>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>

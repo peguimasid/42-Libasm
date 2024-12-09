@@ -105,7 +105,9 @@ void run_write_test(int fd, char *str, size_t len) {
 void execute_write_tests() {
   printf(BOLD "\n➜ Testing: ft_write \n" RESET);
 
-  run_write_test(1, "Hello World!", 12);
+  int fd = open("test.txt", O_CREAT | O_WRONLY | O_TRUNC, 0644);
+
+  run_write_test(fd, "Hello World!", 12);
   // run_write_test(1, "", 0);
   // run_write_test(1, "A", 1);
   // run_write_test(1, "This is a longer string to test the function.", 45);
