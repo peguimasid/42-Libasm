@@ -110,19 +110,23 @@ void run_write_test(int fd, char *str, size_t len) {
 void execute_write_tests() {
   printf(BOLD "\n➜ Testing: ft_write \n" RESET);
 
-  int fd = open("test.txt", O_CREAT | O_WRONLY | O_TRUNC, 0644);
+  int file_fd = open("test.txt", O_CREAT | O_WRONLY | O_TRUNC, 0644);
 
-  run_write_test(fd, "Hello World!", 12);
-  run_write_test(10, "Hello World!", 12);
-  // run_write_test(1, "", 0);
-  // run_write_test(1, "A", 1);
-  // run_write_test(1, "This is a longer string to test the function.", 45);
-  // run_write_test(1, "1234567890", 10);
-  // run_write_test(1, "Special characters !@#$%^&*()", 30);
-  // run_write_test(1, "test12345", 9);
-  // run_write_test(1, "1", 1);
-  // run_write_test(1, "test", 4);
-  // run_write_test(1, "zzzzzzzzzzzzzzzzzzzzzzzz hey", 29);
+  int fds[] = {file_fd, 10, -1};
+
+  for (int i = 0; i < 3; i++) {
+    int fd = fds[i];
+
+    run_write_test(fd, "", 0);
+    run_write_test(fd, "A", 1);
+    run_write_test(fd, "This is a longer string to test the function.", 45);
+    run_write_test(fd, "1234567890", 10);
+    run_write_test(fd, "Special characters !@#$%^&*()", 30);
+    run_write_test(fd, "test12345", 9);
+    run_write_test(fd, "1", 1);
+    run_write_test(fd, "test", 4);
+    run_write_test(fd, "zzzzzzzzzzzzzzzzzzzzzzzz hey", 29);
+  }
 }
 
 int main() {
