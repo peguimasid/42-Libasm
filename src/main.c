@@ -90,19 +90,19 @@ void execute_strcmp_tests() {
 
 void run_write_test(int fd, char *str, size_t len) {
   errno = 0;
-  ssize_t actual = ft_write(fd, str, len);
+  ssize_t actual_result = ft_write(fd, str, len);
   int actual_errno = errno;
 
   errno = 0;
-  ssize_t expected = write(fd, str, len);
+  ssize_t expected_result = write(fd, str, len);
   int expected_errno = errno;
 
-  if (actual == expected && actual_errno == expected_errno) {
+  if (actual_result == expected_result && actual_errno == expected_errno) {
     printf(GREEN);
-    printf("✓ ft_write(%d, \"%s\", %zu) = %zd, errno = %d\n", fd, str, len, actual, actual_errno);
+    printf("✓ ft_write(%d, \"%s\", %zu) = %zd, errno = %d\n", fd, str, len, actual_result, actual_errno);
   } else {
     printf(RED);
-    printf("✕ ft_write(%d, \"%s\", %zu) = %zd, expected %zd, errno = %d, expected errno = %d\n", fd, str, len, actual, expected, actual_errno, expected_errno);
+    printf("✕ ft_write(%d, \"%s\", %zu) = %zd, expected %zd, errno = %d, expected errno = %d\n", fd, str, len, actual_result, expected_result, actual_errno, expected_errno);
   }
   printf(RESET);
 }
