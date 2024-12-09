@@ -23,7 +23,7 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@rm -f test test.txt
+	@rm -f test *.txt
 	@echo "✕ $(NAME)"
 
 re:	fclean all

@@ -110,7 +110,7 @@ void run_write_test(int fd, char *str, size_t len) {
 void execute_write_tests() {
   printf(BOLD "\n➜ Testing: ft_write \n" RESET);
 
-  int file_fd = open("test.txt", O_CREAT | O_WRONLY | O_TRUNC, 0644);
+  int file_fd = open("write_tests.txt", O_CREAT | O_WRONLY | O_TRUNC, 0644);
 
   int fds[] = {file_fd, 10, -1};
 
