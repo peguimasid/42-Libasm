@@ -112,7 +112,7 @@ void execute_write_tests() {
 
   int file_fd = open("write_tests.txt", O_CREAT | O_WRONLY | O_TRUNC, 0644);
 
-  int fds[] = {file_fd, 10, -1};
+  int fds[] = {file_fd, 100, -1};
 
   for (int i = 0; i < 3; i++) {
     int fd = fds[i];
