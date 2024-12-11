@@ -3,6 +3,6 @@
 *.exe
 *.dll
 *.a
-*.txt
+/*.txt
 .DS_Store
 .vscode
