@@ -4,6 +4,7 @@ FILES = ft_strlen.s
 FILES += ft_strcpy.s
 FILES += ft_strcmp.s
 FILES += ft_write.s
+FILES += ft_read.s
 
 SRCS = $(addprefix src/, $(FILES))
 OBJ	 = $(SRCS:.s=.o)
