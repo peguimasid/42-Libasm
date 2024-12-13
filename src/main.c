@@ -134,31 +134,30 @@ void execute_write_tests() {
 #include "libasm.h"
 
 void run_read_test(int fd, size_t len) {
-  char actual[BUFFER_SIZE];
-  char expected[BUFFER_SIZE];
+  char actual_buf[BUFFER_SIZE];
+  char expected_buf[BUFFER_SIZE];
 
   errno = 0;
-  ssize_t actual_result = ft_read(fd, actual, len);
+  ssize_t actual_result = ft_read(fd, actual_buf, len);
   int actual_errno = errno;
 
-  // Reset file descriptor position
-  if (fd >= 0) {
-    lseek(fd, 0, SEEK_SET);
-  }
+  lseek(fd, 0, SEEK_SET);
 
   errno = 0;
-  ssize_t expected_result = read(fd, expected, len);
+  ssize_t expected_result = read(fd, expected_buf, len);
   int expected_errno = errno;
 
-  actual[actual_result] = '\0';
-  expected[expected_result] = '\0';
+  lseek(fd, 0, SEEK_SET);
 
-  if (actual_result == expected_result && actual_errno == expected_errno && strcmp(actual, expected) == 0) {
+  actual_buf[actual_result] = '\0';
+  expected_buf[expected_result] = '\0';
+
+  if (actual_result == expected_result && actual_errno == expected_errno && strcmp(actual_buf, expected_buf) == 0) {
     printf(GREEN);
-    printf("✓ ft_read(%d, %zu) = \"%s\", %zd, errno = %d\n", fd, len, actual, actual_result, actual_errno);
+    printf("✓ ft_read(%d, %zu) = \"%s\", %zd, errno = %d\n", fd, len, actual_buf, actual_result, actual_errno);
   } else {
     printf(RED);
-    printf("✕ ft_read(%d, %zu) = \"%s\", %zd, expected \"%s\", %zd, errno = %d, expected errno = %d\n", fd, len, actual, actual_result, expected, expected_result, actual_errno, expected_errno);
+    printf("✕ ft_read(%d, %zu) = \"%s\", %zd, expected \"%s\", %zd, errno = %d, expected errno = %d\n", fd, len, actual_buf, actual_result, expected_buf, expected_result, actual_errno, expected_errno);
   }
   printf(RESET);
 }
@@ -175,19 +174,19 @@ void execute_read_tests() {
 
     run_read_test(fd, 0);
     run_read_test(fd, 1);
+    run_read_test(fd, 45);
     run_read_test(fd, 10);
-    run_read_test(fd, 34);
-    run_read_test(fd, 50);
+    run_read_test(fd, 30);
   }
 
   close(file_fd);
 }
 
 int main() {
-  // execute_strlen_tests();
-  // execute_strcpy_tests();
-  // execute_strcmp_tests();
-  // execute_write_tests();
+  execute_strlen_tests();
+  execute_strcpy_tests();
+  execute_strcmp_tests();
+  execute_write_tests();
   execute_read_tests();
   return 0;
 }
