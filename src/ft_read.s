@@ -1,7 +1,8 @@
+global ft_read
+
 extern __errno_location
 
 section .text
-  global ft_read
 
 ft_read:
   mov rax, 0 ; set system call to write
