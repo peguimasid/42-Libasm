@@ -189,7 +189,7 @@ void run_strdup_test(char *str1) {
     printf("✓ ft_strdup(\"%s\") = \"%s\"\n", str1, actual);
   } else {
     printf(RED);
-    printf("✕ ft_strdup(\"%s\") = \"%s\", expected %s\n", str1, actual, expected);
+    printf("✕ ft_strdup(\"%s\") = \"%s\", expected \"%s\"\n", str1, actual, expected);
   }
   printf(RESET);
 }
