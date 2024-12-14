@@ -149,8 +149,8 @@ void run_read_test(int fd, size_t len) {
 
   lseek(fd, 0, SEEK_SET);
 
-  actual_buf[actual_result] = '\0';
-  expected_buf[expected_result] = '\0';
+  actual_buf[actual_result == -1 ? 0 : actual_result] = '\0';
+  expected_buf[expected_result == -1 ? 0 : expected_result] = '\0';
 
   if (actual_result == expected_result && actual_errno == expected_errno && strcmp(actual_buf, expected_buf) == 0) {
     printf(GREEN);
