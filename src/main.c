@@ -88,21 +88,21 @@ void execute_strcmp_tests() {
   run_strcmp_test("4242424242", "4242244242");
 }
 
-void run_write_test(int fd, char *str, size_t len) {
+void run_write_test(int fd, char *str, int len) {
   errno = 0;
-  ssize_t actual_result = ft_write(fd, str, len);
+  int actual_result = ft_write(fd, str, len);
   int actual_errno = errno;
 
   errno = 0;
-  ssize_t expected_result = write(fd, str, len);
+  int expected_result = write(fd, str, len);
   int expected_errno = errno;
 
   if (actual_result == expected_result && actual_errno == expected_errno) {
     printf(GREEN);
-    printf("✓ ft_write(%d, \"%s\", %zu) = %zd, errno = %d\n", fd, str, len, actual_result, actual_errno);
+    printf("✓ ft_write(%d, \"%s\", %d) = %d, errno = %d\n", fd, str, len, actual_result, actual_errno);
   } else {
     printf(RED);
-    printf("✕ ft_write(%d, \"%s\", %zu) = %zd, expected %zd, errno = %d, expected errno = %d\n", fd, str, len, actual_result, expected_result, actual_errno, expected_errno);
+    printf("✕ ft_write(%d, \"%s\", %d) = %d, expected %d, errno = %d, expected errno = %d\n", fd, str, len, actual_result, expected_result, actual_errno, expected_errno);
   }
   printf(RESET);
 }
@@ -133,18 +133,18 @@ void execute_write_tests() {
 
 #include "libasm.h"
 
-void run_read_test(int fd, size_t len) {
+void run_read_test(int fd, int len) {
   char actual_buf[BUFFER_SIZE];
   char expected_buf[BUFFER_SIZE];
 
   errno = 0;
-  ssize_t actual_result = ft_read(fd, actual_buf, len);
+  int actual_result = ft_read(fd, actual_buf, len);
   int actual_errno = errno;
 
   lseek(fd, 0, SEEK_SET);
 
   errno = 0;
-  ssize_t expected_result = read(fd, expected_buf, len);
+  int expected_result = read(fd, expected_buf, len);
   int expected_errno = errno;
 
   lseek(fd, 0, SEEK_SET);
@@ -154,10 +154,10 @@ void run_read_test(int fd, size_t len) {
 
   if (actual_result == expected_result && actual_errno == expected_errno && strcmp(actual_buf, expected_buf) == 0) {
     printf(GREEN);
-    printf("✓ ft_read(%d, %zu) = \"%s\", %zd, errno = %d\n", fd, len, actual_buf, actual_result, actual_errno);
+    printf("✓ ft_read(%d, %d) = \"%s\", %d, errno = %d\n", fd, len, actual_buf, actual_result, actual_errno);
   } else {
     printf(RED);
-    printf("✕ ft_read(%d, %zu) = \"%s\", %zd, expected \"%s\", %zd, errno = %d, expected errno = %d\n", fd, len, actual_buf, actual_result, expected_buf, expected_result, actual_errno, expected_errno);
+    printf("✕ ft_read(%d, %d) = \"%s\", %d, expected \"%s\", %d, errno = %d, expected errno = %d\n", fd, len, actual_buf, actual_result, expected_buf, expected_result, actual_errno, expected_errno);
   }
   printf(RESET);
 }
