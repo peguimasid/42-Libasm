@@ -131,8 +131,6 @@ void execute_write_tests() {
   close(file_fd);
 }
 
-#include "libasm.h"
-
 void run_read_test(int fd, int len) {
   char actual_buf[BUFFER_SIZE];
   char expected_buf[BUFFER_SIZE];
@@ -182,11 +180,37 @@ void execute_read_tests() {
   close(file_fd);
 }
 
+void run_strdup_test(char *str1) {
+  char *actual = ft_strdup(str1);
+  char *expected = strdup(str1);
+
+  if (strcmp(actual, expected) == 0) {
+    printf(GREEN);
+    printf("✓ ft_strdup(\"%s\") = \"%s\"\n", str1, actual);
+  } else {
+    printf(RED);
+    printf("✕ ft_strdup(\"%s\") = \"%s\", expected %s\n", str1, actual, expected);
+  }
+  printf(RESET);
+}
+
+void execute_strdup_tests() {
+  printf(BOLD "\n➜ Testing: ft_strdup \n" RESET);
+
+  run_strdup_test("this is a test");
+  run_strdup_test("1");
+  run_strdup_test("test");
+  run_strdup_test("");
+  run_strdup_test("\0");
+  run_strdup_test("424242");
+}
+
 int main() {
   execute_strlen_tests();
   execute_strcpy_tests();
   execute_strcmp_tests();
   execute_write_tests();
   execute_read_tests();
+  execute_strdup_tests();
   return 0;
 }
