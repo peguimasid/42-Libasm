@@ -185,9 +185,9 @@ void run_strdup_test(char *str1) {
   char *expected = strdup(str1);
 
   bool isSameAddress = str1 == actual;
-  bool isStringEqual = strcmp(actual, expected) == 0;
+  bool areStringsEqual = strcmp(actual, expected) == 0;
 
-  if (!isSameAddress && isStringEqual) {
+  if (!isSameAddress && areStringsEqual) {
     printf(GREEN);
     printf("✓ ft_strdup(\"%s\") = \"%s\"\n", str1, actual);
   } else {
