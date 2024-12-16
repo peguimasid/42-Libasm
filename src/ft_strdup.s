@@ -4,13 +4,17 @@ extern malloc
 extern ft_strlen
 extern ft_strcpy
 
-section .data
-  hello_string db 'hello', 0
-
 section .text
 
 ft_strdup:
-  mov rax, hello_string
+  call ft_strlen
+  inc rax
+  push rdi
+  mov rdi, rax
+  call malloc wrt ..plt
+  pop rsi
+  mov rdi, rax
+  call ft_strcpy
   ret
 
 section .note.GNU-stack

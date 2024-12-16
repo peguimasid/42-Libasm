@@ -184,7 +184,10 @@ void run_strdup_test(char *str1) {
   char *actual = ft_strdup(str1);
   char *expected = strdup(str1);
 
-  if (strcmp(actual, expected) == 0) {
+  bool isSameAddress = str1 == actual;
+  bool isStringEqual = strcmp(actual, expected) == 0;
+
+  if (!isSameAddress && isStringEqual) {
     printf(GREEN);
     printf("✓ ft_strdup(\"%s\") = \"%s\"\n", str1, actual);
   } else {
