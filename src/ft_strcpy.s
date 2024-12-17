@@ -10,8 +10,7 @@ loop:
   mov [rdi + rcx], al ; dst[rcx] = al
   inc rcx             ; rcx++
   cmp al, 0           ; is al the end of string?
-  je break            ; jump to break if is equal (je -> jump if equal)
-  jmp loop            ; jump to loop if not is equal <- This only executes if line 12 don't execute, so it works like an else
+  jne loop            ; jump to loop if not is equal
 
 break:
   mov rax, rdi
