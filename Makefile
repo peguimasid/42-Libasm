@@ -7,8 +7,10 @@ FILES += ft_write.s
 FILES += ft_read.s
 FILES += ft_strdup.s
 
+UTILS = src/utils/atoi_base.c
+
 SRCS = $(addprefix src/, $(FILES))
-OBJ	 = $(SRCS:.s=.o)
+OBJ	= $(SRCS:.s=.o)
 
 $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
@@ -31,7 +33,7 @@ fclean: clean
 re:	fclean all
 
 test: all
-	@gcc -Wall -Wextra -Werror src/main.c $(NAME) -o test && ./test && rm test
+	@gcc -Wall -Wextra -Werror src/main.c $(UTILS) $(NAME) -o test && ./test && rm test
 
 linux: linux-clean
 	@docker compose -f docker/compose.yml run debian bash

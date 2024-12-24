@@ -217,5 +217,6 @@ int main() {
   execute_read_tests();
   execute_strdup_tests();
   printf(BOLD "\n############ BONUS ############ \n" RESET);
+  printf(">>> %d\n", atoi_base("-34", 10));
   return 0;
 }
