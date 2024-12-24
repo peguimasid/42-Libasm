@@ -209,11 +209,13 @@ void execute_strdup_tests() {
 }
 
 int main() {
+  printf(BOLD "\n############ MANDATORY ############ \n" RESET);
   execute_strlen_tests();
   execute_strcpy_tests();
   execute_strcmp_tests();
   execute_write_tests();
   execute_read_tests();
   execute_strdup_tests();
+  printf(BOLD "\n############ BONUS ############ \n" RESET);
   return 0;
 }
