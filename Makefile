@@ -6,6 +6,7 @@ FILES += ft_strcmp.s
 FILES += ft_write.s
 FILES += ft_read.s
 FILES += ft_strdup.s
+FILES += ft_atoi_base.s
 
 UTILS = src/utils/atoi_base.c
 
