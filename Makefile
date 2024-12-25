@@ -1,16 +1,9 @@
 NAME = libasm.a
 
-FILES = ft_strlen.s
-FILES += ft_strcpy.s
-FILES += ft_strcmp.s
-FILES += ft_write.s
-FILES += ft_read.s
-FILES += ft_strdup.s
-FILES += ft_atoi_base.s
+UTIL_SRCS = $(shell find src/utils -name '*.c')
 
-UTILS = src/utils/atoi_base.c
+SRCS = $(shell find src -name '*.s')
 
-SRCS = $(addprefix src/, $(FILES))
 OBJ	= $(SRCS:.s=.o)
 
 $(NAME): $(OBJ)
@@ -34,7 +27,7 @@ fclean: clean
 re:	fclean all
 
 test: all
-	@gcc -Wall -Wextra -Werror src/main.c $(UTILS) $(NAME) -o test && ./test && rm test
+	@gcc -Wall -Wextra -Werror src/main.c $(UTIL_SRCS) $(NAME) -o test && ./test && rm test
 
 linux: linux-clean
 	@docker compose -f docker/compose.yml run debian bash
