@@ -15,6 +15,11 @@
 #include <string.h>
 #include <unistd.h>
 
+typedef struct s_list {
+  void *data;
+  struct s_list *next;
+} t_list;
+
 // Mandatory
 int ft_strlen(char *str);
 char *ft_strcpy(char *dst, char *src);
@@ -25,6 +30,8 @@ char *ft_strdup(const char *s1);
 
 // Bonus
 int ft_atoi_base(const char *str, int str_base);
+int ft_list_size(t_list *begin_list);
 
 // Utils
 int atoi_base(const char *str, int str_base);
+int list_size(t_list *list);

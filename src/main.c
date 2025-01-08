@@ -237,6 +237,67 @@ void execute_atoi_base_tests() {
   run_atoi_base_test("Z", 36);  // Invalid base, should return 0
 }
 
+void run_list_size_test(t_list *list) {
+  int actual = ft_list_size(list);
+  int expected = list_size(list);
+
+  if (actual == expected) {
+    printf(GREEN);
+    printf("✓ ft_list_size() = %d\n", actual);
+  } else {
+    printf(RED);
+    printf("✕ ft_list_size() = %d, expected %d\n", actual, expected);
+  }
+  printf(RESET);
+}
+
+void execute_list_size_tests() {
+  printf(BOLD "\n➜ Testing: ft_list_size \n" RESET);
+
+  t_list *list = NULL;
+  run_list_size_test(list);
+
+  t_list node1 = {.data = "node1", .next = NULL};
+  list = &node1;
+  run_list_size_test(list);
+
+  t_list node2 = {.data = "node2", .next = NULL};
+  node1.next = &node2;
+  run_list_size_test(list);
+
+  t_list node3 = {.data = "node3", .next = NULL};
+  node2.next = &node3;
+  run_list_size_test(list);
+
+  t_list node4 = {.data = "node4", .next = NULL};
+  node3.next = &node4;
+  run_list_size_test(list);
+
+  t_list node5 = {.data = "node5", .next = NULL};
+  node4.next = &node5;
+  run_list_size_test(list);
+
+  t_list node6 = {.data = "node6", .next = NULL};
+  node5.next = &node6;
+  run_list_size_test(list);
+
+  t_list node7 = {.data = "node7", .next = NULL};
+  node6.next = &node7;
+  run_list_size_test(list);
+
+  t_list node8 = {.data = "node8", .next = NULL};
+  node7.next = &node8;
+  run_list_size_test(list);
+
+  t_list node9 = {.data = "node9", .next = NULL};
+  node8.next = &node9;
+  run_list_size_test(list);
+
+  t_list node10 = {.data = "node10", .next = NULL};
+  node9.next = &node10;
+  run_list_size_test(list);
+}
+
 int main() {
   printf(BOLD "\n############ MANDATORY ############ \n" RESET);
   execute_strlen_tests();
@@ -247,5 +308,6 @@ int main() {
   execute_strdup_tests();
   printf(BOLD "\n############ BONUS ############ \n" RESET);
   execute_atoi_base_tests();
+  execute_list_size_tests();
   return 0;
 }
