@@ -257,43 +257,43 @@ void execute_list_size_tests() {
   t_list *list = NULL;
   run_list_size_test(list);
 
-  t_list node1 = {.data = "node1", .next = NULL};
+  t_list node1 = {.data = (void *)(intptr_t)1, .next = NULL};
   list = &node1;
   run_list_size_test(list);
 
-  t_list node2 = {.data = "node2", .next = NULL};
+  t_list node2 = {.data = (void *)(intptr_t)2, .next = NULL};
   node1.next = &node2;
   run_list_size_test(list);
 
-  t_list node3 = {.data = "node3", .next = NULL};
+  t_list node3 = {.data = (void *)(intptr_t)3, .next = NULL};
   node2.next = &node3;
   run_list_size_test(list);
 
-  t_list node4 = {.data = "node4", .next = NULL};
+  t_list node4 = {.data = (void *)(intptr_t)4, .next = NULL};
   node3.next = &node4;
   run_list_size_test(list);
 
-  t_list node5 = {.data = "node5", .next = NULL};
+  t_list node5 = {.data = (void *)(intptr_t)5, .next = NULL};
   node4.next = &node5;
   run_list_size_test(list);
 
-  t_list node6 = {.data = "node6", .next = NULL};
+  t_list node6 = {.data = (void *)(intptr_t)6, .next = NULL};
   node5.next = &node6;
   run_list_size_test(list);
 
-  t_list node7 = {.data = "node7", .next = NULL};
+  t_list node7 = {.data = (void *)(intptr_t)7, .next = NULL};
   node6.next = &node7;
   run_list_size_test(list);
 
-  t_list node8 = {.data = "node8", .next = NULL};
+  t_list node8 = {.data = (void *)(intptr_t)8, .next = NULL};
   node7.next = &node8;
   run_list_size_test(list);
 
-  t_list node9 = {.data = "node9", .next = NULL};
+  t_list node9 = {.data = (void *)(intptr_t)9, .next = NULL};
   node8.next = &node9;
   run_list_size_test(list);
 
-  t_list node10 = {.data = "node10", .next = NULL};
+  t_list node10 = {.data = (void *)(intptr_t)10, .next = NULL};
   node9.next = &node10;
   run_list_size_test(list);
 }
