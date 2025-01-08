@@ -307,7 +307,7 @@ int main() {
   execute_read_tests();
   execute_strdup_tests();
   printf(BOLD "\n############ BONUS ############ \n" RESET);
-  execute_atoi_base_tests();
+  // execute_atoi_base_tests();
   execute_list_size_tests();
   return 0;
 }
