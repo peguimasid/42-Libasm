@@ -258,7 +258,8 @@ void execute_list_size_tests() {
   run_list_size_test(list);
 
   for (int i = 0; i < 10; i++) {
-    list_push_back(&list, list_new(&i));
+    list_print(list);
+    list_push_back(&list, &i);
     run_list_size_test(list);
   }
 }
