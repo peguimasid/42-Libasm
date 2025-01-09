@@ -1,7 +1,7 @@
 #include "../libasm.h"
 
-void list_push_back(t_list **list, t_list *new_node) {
-  t_list *tail;
+void list_push_back(t_list **list, void *data) {
+  t_list *new_node = list_new(data);
 
   if (!new_node) return;
 
@@ -10,6 +10,6 @@ void list_push_back(t_list **list, t_list *new_node) {
     return;
   }
 
-  tail = list_last(*list);
+  t_list *tail = list_last(*list);
   tail->next = new_node;
 }
