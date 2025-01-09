@@ -262,7 +262,7 @@ void execute_list_size_tests() {
   run_list_size_test(list);
 
   t_list node2 = {.data = (void *)(intptr_t)2, .next = NULL};
-  node1.next = &node2;
+  list_push_front(&list, &node2);
   run_list_size_test(list);
 
   t_list node3 = {.data = (void *)(intptr_t)3, .next = NULL};

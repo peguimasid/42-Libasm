@@ -35,3 +35,4 @@ int ft_list_size(t_list *begin_list);
 // Utils
 int atoi_base(const char *str, int str_base);
 int list_size(t_list *list);
+void list_push_front(t_list **list, t_list *new_node);
