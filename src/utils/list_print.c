@@ -2,7 +2,7 @@
 
 void list_print(t_list *list) {
   while (list) {
-    printf("%d", *(int *)list->data);
+    printf("%s", (char *)list->data);
     if (list->next) printf(" -> ");
     list = list->next;
   }

@@ -40,3 +40,4 @@ void list_push_back(t_list **list, void *data);
 void list_print(t_list *list);
 t_list *list_last(t_list *list);
 t_list *list_new(void *data);
+char *itoa(int n);

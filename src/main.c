@@ -258,8 +258,7 @@ void execute_list_size_tests() {
   run_list_size_test(list);
 
   for (int i = 0; i < 10; i++) {
-    list_print(list);
-    list_push_back(&list, &i);
+    list_push_back(&list, itoa(i));
     run_list_size_test(list);
   }
 }
@@ -275,5 +274,6 @@ int main() {
   printf(BOLD "\n############ BONUS ############ \n" RESET);
   // execute_atoi_base_tests();
   execute_list_size_tests();
+
   return 0;
 }
