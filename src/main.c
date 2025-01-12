@@ -276,7 +276,7 @@ int main() {
   execute_list_size_tests();
 
   t_list *list = NULL;
-  ft_list_push_front(&list, "first");
+  list_push_back(&list, "first");
   char *result = ft_list_push_front(&list, "second");
   printf(">> %s\n", result);
 
