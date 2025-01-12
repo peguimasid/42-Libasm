@@ -274,11 +274,5 @@ int main() {
   printf(BOLD "\n############ BONUS ############ \n" RESET);
   // execute_atoi_base_tests();
   execute_list_size_tests();
-
-  t_list *list = NULL;
-  list_push_back(&list, "first");
-  char *result = ft_list_push_front(&list, "second");
-  printf(">> %s\n", result);
-
   return 0;
 }
