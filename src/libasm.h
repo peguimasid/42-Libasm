@@ -32,7 +32,7 @@ char *ft_strdup(const char *s1);
 int ft_atoi_base(const char *str, int str_base);
 int ft_list_size(t_list *head);
 // TODO: replace with void return
-int ft_list_push_front(t_list **head, void *data);
+char *ft_list_push_front(t_list **head, void *data);
 
 // Utils
 int atoi_base(const char *str, int str_base);
