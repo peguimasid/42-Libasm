@@ -29,7 +29,6 @@ ssize_t ft_read(int fd, void *buf, size_t nbyte);
 char *ft_strdup(const char *s1);
 
 // Bonus
-int ft_atoi_base(const char *str, int str_base);
 int ft_list_size(t_list *head);
 void ft_list_push_front(t_list **head, void *data);
 

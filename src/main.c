@@ -208,35 +208,6 @@ void execute_strdup_tests() {
   run_strdup_test("424242");
 }
 
-void run_atoi_base_test(char *str, int base) {
-  int actual = ft_atoi_base(str, base);
-  int expected = atoi_base(str, base);
-
-  if (actual == expected) {
-    printf(GREEN);
-    printf("✓ ft_atoi_base(\"%s\", %d) = %d\n", str, base, actual);
-  } else {
-    printf(RED);
-    printf("✕ ft_atoi_base(\"%s\", %d) = %d, expected %d\n", str, base, actual, expected);
-  }
-  printf(RESET);
-}
-
-void execute_atoi_base_tests() {
-  printf(BOLD "\n➜ Testing: ft_atoi_base \n" RESET);
-
-  run_atoi_base_test("10", 2);
-  run_atoi_base_test("1A", 16);
-  run_atoi_base_test("123", 10);
-  run_atoi_base_test("-1A", 16);
-  run_atoi_base_test("   42", 10);
-  run_atoi_base_test("   -42", 10);
-  run_atoi_base_test("7F", 16);
-  run_atoi_base_test("101", 2);
-  run_atoi_base_test("0", 10);
-  run_atoi_base_test("Z", 36);  // Invalid base, should return 0
-}
-
 void run_list_size_test(t_list *list) {
   int actual = ft_list_size(list);
   int expected = list_size(list);
@@ -272,7 +243,6 @@ int main() {
   execute_read_tests();
   execute_strdup_tests();
   printf(BOLD "\n############ BONUS ############ \n" RESET);
-  // execute_atoi_base_tests();
   execute_list_size_tests();
   return 0;
 }
