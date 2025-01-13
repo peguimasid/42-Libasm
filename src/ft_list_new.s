@@ -11,7 +11,7 @@ ft_list_new:
   test rax, rax           ; if result == NULL
   jz break                ; return NULL
   pop rdi                 ; rdi = stack.pop()
-  mov [rax], rdi          ; [rax] = data
+  mov [rax], rdi          ; [rax] = rdi
   mov qword [rax + 8], 0  ; [rax + 8] = NULL (assuming 64-bit pointers)
 
 break:
