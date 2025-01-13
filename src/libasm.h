@@ -32,6 +32,9 @@ char *ft_strdup(const char *s1);
 int ft_list_size(t_list *head);
 void ft_list_push_front(t_list **head, void *data);
 
+// Bonus utils
+t_list *ft_list_new(void *data);
+
 // Utils
 int atoi_base(const char *str, int str_base);
 int list_size(t_list *list);

@@ -235,14 +235,23 @@ void execute_list_size_tests() {
 }
 
 int main() {
-  printf(BOLD "\n############ MANDATORY ############ \n" RESET);
-  execute_strlen_tests();
-  execute_strcpy_tests();
-  execute_strcmp_tests();
-  execute_write_tests();
-  execute_read_tests();
-  execute_strdup_tests();
-  printf(BOLD "\n############ BONUS ############ \n" RESET);
-  execute_list_size_tests();
+  // printf(BOLD "\n############ MANDATORY ############ \n" RESET);
+  // execute_strlen_tests();
+  // execute_strcpy_tests();
+  // execute_strcmp_tests();
+  // execute_write_tests();
+  // execute_read_tests();
+  // execute_strdup_tests();
+  // printf(BOLD "\n############ BONUS ############ \n" RESET);
+  // execute_list_size_tests();
+
+  t_list *head = ft_list_new("test");
+  printf(">> %s\n", (char *)head->data);
+  printf(">> %s\n", (char *)head->next);
+
+  head->next = ft_list_new("test2");
+  head = head->next;
+  printf(">> %s\n", (char *)head->data);
+  printf(">> %s\n", (char *)head->next);
   return 0;
 }
