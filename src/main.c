@@ -244,5 +244,13 @@ int main() {
   execute_strdup_tests();
   printf(BOLD "\n############ BONUS ############ \n" RESET);
   execute_list_size_tests();
+
+  t_list *head = ft_list_new("string1");
+  ft_list_push_front(&head, "string2");
+  ft_list_push_front(&head, "string3");
+  ft_list_push_front(&head, "string4");
+
+  list_print(head);
+
   return 0;
 }
