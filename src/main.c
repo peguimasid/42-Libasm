@@ -214,10 +214,10 @@ void run_list_size_test(t_list *list) {
 
   if (actual == expected) {
     printf(GREEN);
-    printf("✓ ft_list_size() = %d\n", actual);
+    printf("✓ ft_list_size(list) = %d\n", actual);
   } else {
     printf(RED);
-    printf("✕ ft_list_size() = %d, expected %d\n", actual, expected);
+    printf("✕ ft_list_size(list) = %d, expected %d\n", actual, expected);
   }
   printf(RESET);
 }
@@ -234,6 +234,38 @@ void execute_list_size_tests() {
   }
 }
 
+void run_list_push_front_test(t_list **list, char *data, int expected_size) {
+  ft_list_push_front(list, data);
+  int actual_size = ft_list_size(*list);
+
+  if (*list && strcmp((*list)->data, data) == 0 && actual_size == expected_size) {
+    printf(GREEN);
+    printf("✓ ft_list_push_front(list, \"%s\") added to the front of the list, size = %d\n", data, actual_size);
+  } else {
+    printf(RED);
+    printf("✕ ft_list_push_front(list, \"%s\") failed to add to the front of the list, size = %d, expected size = %d\n", data, actual_size, expected_size);
+  }
+  printf(RESET);
+}
+
+void execute_list_push_front_tests() {
+  printf(BOLD "\n➜ Testing: ft_list_push_front \n" RESET);
+
+  t_list *list = NULL;
+  int i = 0;
+  run_list_push_front_test(&list, "libft", ++i);
+  run_list_push_front_test(&list, "get_next_line", ++i);
+  run_list_push_front_test(&list, "ft_printf", ++i);
+  run_list_push_front_test(&list, "so_long", ++i);
+  run_list_push_front_test(&list, "pipex", ++i);
+  run_list_push_front_test(&list, "push_swap", ++i);
+  run_list_push_front_test(&list, "cub3d", ++i);
+  run_list_push_front_test(&list, "NetPractice", ++i);
+  run_list_push_front_test(&list, "inception", ++i);
+  run_list_push_front_test(&list, "webserv", ++i);
+  run_list_push_front_test(&list, "ft_transcendence", ++i);
+}
+
 int main() {
   printf(BOLD "\n############ MANDATORY ############ \n" RESET);
   execute_strlen_tests();
@@ -244,13 +276,6 @@ int main() {
   execute_strdup_tests();
   printf(BOLD "\n############ BONUS ############ \n" RESET);
   execute_list_size_tests();
-
-  t_list *head = ft_list_new("string1");
-  ft_list_push_front(&head, "string2");
-  ft_list_push_front(&head, "string3");
-  ft_list_push_front(&head, "string4");
-
-  list_print(head);
-
+  execute_list_push_front_tests();
   return 0;
 }
