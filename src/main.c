@@ -163,7 +163,7 @@ void run_read_test(int fd, int len) {
 void execute_read_tests() {
   printf(BOLD "\n➜ Testing: ft_read \n" RESET);
 
-  int file_fd = open("./utils/lorem.txt", O_RDONLY);
+  int file_fd = open("./src/utils/lorem.txt", O_RDONLY);
 
   int fds[] = {file_fd, 100, -1};
 
