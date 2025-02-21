@@ -1,8 +1,8 @@
 <h1 align="center">Welcome to Libasm 👋</h1>
 <p align="center">🏭 The aim of this project is to get familiar with assembly language.</p>
 
-- **Status**: WIP 
-- **Result**: 0%
+- **Status**: Finished 
+- **Result**: 110%
 
 ## Install
 
